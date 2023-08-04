@@ -19,12 +19,12 @@ const LoginScreen = () => {
 
     if (Platform.OS === "ios") {
       if (windowHeight >= 812) {
-        return -250;
+        return -220;
       } else {
         return -140;
       }
     } else {
-      return -185;
+      return -180;
     }
   };
 

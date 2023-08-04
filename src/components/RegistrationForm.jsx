@@ -2,20 +2,16 @@ import {
   Text,
   View,
   StyleSheet,
-  Dimensions,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import FormInput from "./FormInput";
 import PrimaryButton from "./PrimaryButton";
 import ProfileAvatar from "./ProfileAvatar";
 
 const RegistrationForm = () => {
-  const screenHeight = Dimensions.get("window").height;
-  const overlayHeight =
-    Platform.OS === "ios" ? screenHeight * 0.65 : screenHeight * 0.7;
-
   return (
-    <View style={[styles.overlay, { height: overlayHeight }]}>
+    <View style={styles.overlay}>
       <ProfileAvatar />
       <Text style={styles.title}>Реєстрація</Text>
       <View style={styles.inputContainer}>
@@ -33,6 +29,7 @@ const RegistrationForm = () => {
     </View>
   );
 };
+const screenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   overlay: {
@@ -41,13 +38,29 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 16,
-    paddingTop: 90,
     alignItems: "center",
+    ...Platform.select({
+      ios: {
+        paddingTop: 90,
+        paddingBottom: 90,
+      },
+      android: {
+        ...(screenHeight <= 1920
+          ? {
+              paddingTop: 60,
+              paddingBottom: 25,
+            }
+          : {
+              paddingTop: 90,
+              paddingBottom: 90,
+            }),
+      },
+    }),
   },
 
   inputContainer: {
     width: "100%",
-    rowGap: 16,
+    rowGap: 12,
   },
 
   title: {

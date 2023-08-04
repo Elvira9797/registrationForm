@@ -4,8 +4,8 @@ import RegistrationScreen from "./src/screens/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 
 export default function App() {
-  // return <LoginScreen />;
-  return <RegistrationScreen />;
+  return <LoginScreen />;
+  // return <RegistrationScreen />;
 }
 
 const styles = StyleSheet.create({});

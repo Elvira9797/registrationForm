@@ -9,12 +9,8 @@ import FormInput from "./FormInput";
 import PrimaryButton from "./PrimaryButton";
 
 const LoginForm = () => {
-  const screenHeight = Dimensions.get("window").height;
-  const overlayHeight =
-    Platform.OS === "ios" ? screenHeight * 0.6 : screenHeight * 0.6;
-
   return (
-    <View style={[styles.overlay, { height: overlayHeight }]}>
+    <View style={styles.overlay}>
       <Text style={styles.title}>Увійти</Text>
       <View style={styles.inputContainer}>
         <FormInput
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     paddingHorizontal: 16,
     paddingTop: 50,
-
+    paddingBottom: 120,
     alignItems: "center",
   },
 
