@@ -1,8 +1,8 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-const PrimaryButton = ({ text }) => {
+const PrimaryButton = ({ text, handleSubmit }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );

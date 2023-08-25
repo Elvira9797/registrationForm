@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-const FormInput = ({ placeholderText, name }) => {
+const FormInput = ({ placeholderText, name, handleInput, value }) => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -31,9 +31,11 @@ const FormInput = ({ placeholderText, name }) => {
             style={[styles.textInput, isFocused && styles.textInputFocused]}
             placeholder={placeholderText}
             name={name}
+            value={value}
             secureTextEntry={!isPasswordVisible}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            onChangeText={handleInput}
           />
           <TouchableOpacity
             onPress={togglePasswordVisibility}
@@ -49,8 +51,10 @@ const FormInput = ({ placeholderText, name }) => {
           style={[styles.textInput, isFocused && styles.textInputFocused]}
           placeholder={placeholderText}
           name={name}
+          value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onChangeText={handleInput}
         />
       )}
     </>

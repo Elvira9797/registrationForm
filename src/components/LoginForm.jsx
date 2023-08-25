@@ -1,14 +1,18 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import FormInput from "./FormInput";
 import PrimaryButton from "./PrimaryButton";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onLogin = () => {
+    console.log(`email: ${email}, password: ${password}`);
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <View style={styles.overlay}>
       <Text style={styles.title}>Увійти</Text>
@@ -16,10 +20,17 @@ const LoginForm = () => {
         <FormInput
           placeholderText={"Адреса електронної пошти"}
           name={"email"}
+          value={email}
+          handleInput={setEmail}
         />
-        <FormInput placeholderText={"Пароль"} name={"password"} />
+        <FormInput
+          placeholderText={"Пароль"}
+          name={"password"}
+          value={password}
+          handleInput={setPassword}
+        />
       </View>
-      <PrimaryButton text={"Увійти"} />
+      <PrimaryButton text={"Увійти"} handleSubmit={onLogin} />
       <TouchableOpacity>
         <Text style={styles.loginText}>Немає акаунту? Зареєструватися</Text>
       </TouchableOpacity>

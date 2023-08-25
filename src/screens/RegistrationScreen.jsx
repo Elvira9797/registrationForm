@@ -18,7 +18,7 @@ const RegistrationScreen = () => {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
-        keyboardVerticalOffset={Platform.OS === "ios" ? -185 : -150}
+        keyboardVerticalOffset={Platform.OS === "ios" ? -185 : -90}
       >
         <ImageBackground
           source={require("../assets/image/bg-image.jpg")}
